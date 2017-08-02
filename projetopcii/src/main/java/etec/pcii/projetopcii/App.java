@@ -29,15 +29,17 @@ public class App
 
 	
 	public App() {
-		this.usuariosCadastrados.add(new UsuarioSistema("Administrador da Silva", "admin", "admin123"));
-		this.usuariosCadastrados.add(new UsuarioSistema("Wagner", "loginwagner", "123456"));
+		this.usuariosCadastrados.add(
+				new UsuarioSistema("Administrador da Silva", "admin", "admin123"));
+		this.usuariosCadastrados.add(
+				new UsuarioSistema("Wagner", "loginwagner", "123456"));
 		this.apresentarPainelDeLogin();
 	}
 	
 	public void apresentarPainelDeLogin() {
 		JFrame jFrame =  new JFrame("Tela Principal");
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		System.out.println(this);
+		
 		jFrame.add(new LoginPanel(this));				
 		jFrame.pack();//ele recaulcula aqui o melhor tamanho		
 		jFrame.setVisible(true);
