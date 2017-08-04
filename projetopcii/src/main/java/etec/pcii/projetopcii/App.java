@@ -10,7 +10,9 @@ import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 
+import etec.pcii.projetopcii.model.Pessoa;
 import etec.pcii.projetopcii.model.UsuarioSistema;
+import etec.pcii.projetopcii.persistence.JdbcDAO;
 import etec.pcii.projetopcii.swing.view.LoginPanel;
 
 /**
@@ -28,12 +30,19 @@ public class App
 	private UsuarioSistema usuarioLogado; //default e null 
 
 	
-	public App() {
-		this.usuariosCadastrados.add(
-				new UsuarioSistema("Administrador da Silva", "admin", "admin123"));
-		this.usuariosCadastrados.add(
-				new UsuarioSistema("Wagner", "loginwagner", "123456"));
-		this.apresentarPainelDeLogin();
+	
+	
+	public App() throws Exception {
+//		this.usuariosCadastrados.add(
+//				new UsuarioSistema("Administrador da Silva", "admin", "admin123"));
+//		this.usuariosCadastrados.add(
+//				new UsuarioSistema("Wagner", "loginwagner", "123456"));
+//		this.apresentarPainelDeLogin();
+		UsuarioSistema zezinho = new UsuarioSistema("Zezinho da Silva", "zezinho", "zezinho");
+		UsuarioSistema luizinho = new UsuarioSistema("Luizinho Ferreira", "luizinho", "luizinho");
+		JdbcDAO<Pessoa> jdbc_Pessoa_DAO = new JdbcDAO<Pessoa>();
+		jdbc_Pessoa_DAO.inserir(zezinho);
+		jdbc_Pessoa_DAO.inserir(luizinho);
 	}
 	
 	public void apresentarPainelDeLogin() {
@@ -71,7 +80,7 @@ public class App
 
 	
 	
-	public static void main( String[] args )	
+	public static void main( String[] args ) throws Exception	
     {		
 		new App();
 		
